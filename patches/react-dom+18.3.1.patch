@@ -211,6 +211,37 @@ index 2fc4484..825c117 100644
  
          return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
        }
+diff --git a/node_modules/react-dom/umd/react-dom-server.browser.development.js b/node_modules/react-dom/umd/react-dom-server.browser.development.js
+index dbe2198..9ff12db 100644
+--- a/node_modules/react-dom/umd/react-dom-server.browser.development.js
++++ b/node_modules/react-dom/umd/react-dom-server.browser.development.js
+@@ -222,7 +222,7 @@
+   function checkAttributeStringCoercion(value, attributeName) {
+     {
+       if (willCoercionThrow(value)) {
+-        error('The provided `%s` attribute is an unsupported type %s.' + ' This value must be coerced to a string before before using it here.', attributeName, typeName(value));
++      error('The provided `%s` attribute is an unsupported type %s.' + ' This value must be coerced to a string before using it here.', attributeName, typeName(value));
+ 
+         return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+       }
+@@ -231,7 +231,7 @@
+   function checkCSSPropertyStringCoercion(value, propName) {
+     {
+       if (willCoercionThrow(value)) {
+-        error('The provided `%s` CSS property is an unsupported type %s.' + ' This value must be coerced to a string before before using it here.', propName, typeName(value));
++      error('The provided `%s` CSS property is an unsupported type %s.' + ' This value must be coerced to a string before using it here.', propName, typeName(value));
+ 
+         return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+       }
+@@ -240,7 +240,7 @@
+   function checkHtmlStringCoercion(value) {
+     {
+       if (willCoercionThrow(value)) {
+-        error('The provided HTML markup uses a value of unsupported type %s.' + ' This value must be coerced to a string before before using it here.', typeName(value));
++      error('The provided HTML markup uses a value of unsupported type %s.' + ' This value must be coerced to a string before using it here.', typeName(value));
+ 
+         return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+       }
 diff --git a/node_modules/react-dom/umd/react-dom.development.js b/node_modules/react-dom/umd/react-dom.development.js
 index 57a309c..bad0d24 100644
 --- a/node_modules/react-dom/umd/react-dom.development.js
