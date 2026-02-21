@@ -12,81 +12,73 @@ import Notifications from "./components/Notifications";
 const localTracks = [
   {
     id: "l1",
-    title: "Deewane",
-    artist: "Navaan Sandhu",
-    url: "/music/deewane - navaan sandhu.mp3",
-    art: "🔥",
-    isLocal: true,
-  },
-  {
-    id: "l2",
     title: "Hamdard",
     artist: "Arijit Singh",
-    url: "/music/hamdard _ ek villain (slowed   reverb) _ arijit singh(mp3_320k).mp3",
+    url: "/music/hamdard.mp3",
     art: "💔",
     isLocal: true,
   },
   {
-    id: "l3",
+    id: "l2",
     title: "Bombay Dreams",
     artist: "Kavita Seth",
-    url: "/music/bombay dreams (feat. kavita seth).mp3",
+    url: "/music/bombay_dreams.mp3",
     art: "🌆",
     isLocal: true,
   },
   {
-    id: "l4",
+    id: "l3",
     title: "Tu Jhoom",
     artist: "Naseebo Lal x Abida Parveen",
-    url: "/music/coke studio _ season 14 _ tu jhoom _ naseebo lal x abida parveen(mp3_320k).mp3",
+    url: "/music/tu_jhoom.mp3",
     art: "✨",
     isLocal: true,
   },
   {
-    id: "l5",
+    id: "l4",
     title: "Hamari Adhuri Kahani",
     artist: "Arijit Singh",
-    url: "/music/hamari adhuri kahani (slowed   reverb) __ arijit singh(mp3_320k).mp3",
+    url: "/music/hamari_adhuri_kahani.mp3",
     art: "🌧️",
     isLocal: true,
   },
   {
-    id: "l6",
+    id: "l5",
     title: "Aaj Bhi",
     artist: "Vishal Mishra",
-    url: "/music/aaj bhi vishal mishra 320 kbps.mp3",
+    url: "/music/aaj_bhi.mp3",
     art: "🕯️",
     isLocal: true,
   },
   {
-    id: "l7",
+    id: "l6",
     title: "Aaoge Tum Kabhi",
     artist: "The Local Train",
-    url: "/music/aaoge tum kabhi.mp3",
+    url: "/music/aaoge_tum_kabhi.mp3",
     art: "🎸",
     isLocal: true,
   },
   {
-    id: "l8",
+    id: "l7",
     title: "Banjara",
     artist: "Ankit Tiwari",
-    url: "/music/banjara (slowed   reverb) __ ek villain(mp3_320k).mp3",
+    url: "/music/banjara.mp3",
     art: "👣",
     isLocal: true,
   },
   {
-    id: "l9",
+    id: "l8",
     title: "Pal Pal Dil Ke Paas",
     artist: "Kishore Kumar",
-    url: "/music/pal pal dil ke paas(koshalworld.com).mp3",
+    url: "/music/pal_pal_dil_ke_paas.mp3",
     art: "📻",
     isLocal: true,
   },
   {
-    id: "l10",
+    id: "l9",
     title: "Kun Faaya Kun",
     artist: "A.R. Rahman",
-    url: "/music/kun faaya kun rockstar 320 kbps.mp3",
+    url: "/music/kun_faaya_kun.mp3",
     art: "🕌",
     isLocal: true,
   },
@@ -121,7 +113,8 @@ function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [isPlaying, setIsPlaying] = useState(false);
 
-  const audioRef = useRef(new Audio());
+  const audioRef = useRef(null);
+  const errorCountRef = useRef(0); // To prevent infinite skipping loops
 
   // Notification function
   const showNotification = useCallback((message, type = "success") => {
@@ -136,13 +129,27 @@ function App() {
       return;
     }
 
+    errorCountRef.current = 0; // Reset error count on successful play attempt
     setCurrentIndex(idx);
     const track = activePlaylist[idx];
 
+    console.log(`🎵 Attempting to play: ${track.title}`, track.url);
+
     // Set audio source and play
     audioRef.current.src = track.url;
-    audioRef.current.play();
-    setIsPlaying(true);
+    audioRef.current.load(); // Ensure the new source is loaded
+    const playPromise = audioRef.current.play();
+
+    if (playPromise !== undefined) {
+      playPromise.then(() => {
+        setIsPlaying(true);
+      }).catch(error => {
+        if (error.name !== 'AbortError') {
+          console.error("Playback failed:", error);
+        }
+        setIsPlaying(false);
+      });
+    }
 
     // Add to recently played
     setRecentlyPlayed((prev) => {
@@ -162,8 +169,17 @@ function App() {
     }
 
     if (audioRef.current.paused) {
-      audioRef.current.play();
-      setIsPlaying(true);
+      const playPromise = audioRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          setIsPlaying(true);
+        }).catch(error => {
+          if (error.name !== 'AbortError') {
+            console.error("Playback failed:", error);
+          }
+          setIsPlaying(false);
+        });
+      }
     } else {
       audioRef.current.pause();
       setIsPlaying(false);
@@ -232,8 +248,13 @@ function App() {
       setIsPlaying(false);
       if (repeatMode === 2) {
         audio.currentTime = 0;
-        audio.play();
-        setIsPlaying(true);
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+          playPromise.then(() => setIsPlaying(true)).catch(error => {
+            console.error("Repeat playback failed:", error);
+            setIsPlaying(false);
+          });
+        }
       } else if (repeatMode === 1 || shuffleOn) {
         nextTrack();
       } else if (currentIndex < activePlaylist.length - 1) {
@@ -245,10 +266,28 @@ function App() {
 
     const handleError = () => {
       setIsPlaying(false);
-      showNotification("Error playing track. Skipping to next...", "error");
-      if (activePlaylist.length > 1) {
-        nextTrack();
+      
+      // Log detailed error for debugging
+      console.error("Audio Error:", audio.error);
+      console.error("Failed Source:", audio.src);
+
+      const errorCode = audio.error?.code;
+      let message = "Playback error.";
+
+      if (errorCode === 4) {
+        const fileName = audio.src.split('/').pop(); // Get just the filename
+        message = `Missing file: "${decodeURIComponent(fileName)}". Check public/music/ folder.`;
+        
+        // Auto-skip logic
+        if (errorCountRef.current < 3 && activePlaylist.length > 1) {
+          errorCountRef.current += 1;
+          showNotification(`Skipping missing track: ${activePlaylist[currentIndex].title}`, "warning");
+          setTimeout(() => nextTrack(), 1000);
+          return;
+        }
       }
+      
+      showNotification(message, "error");
     };
 
     audio.addEventListener("timeupdate", handleTimeUpdate);
@@ -468,6 +507,7 @@ function App() {
 
   return (
     <div className="app">
+      <audio ref={audioRef} preload="auto" loop={false} />
       {showAuth && (
         <AuthOverlay
           onLogin={handleLogin}
