@@ -1,0 +1,52 @@
+diff --git a/node_modules/react/cjs/react-jsx-dev-runtime.development.js b/node_modules/react/cjs/react-jsx-dev-runtime.development.js
+index f47788b..8204c19 100644
+--- a/node_modules/react/cjs/react-jsx-dev-runtime.development.js
++++ b/node_modules/react/cjs/react-jsx-dev-runtime.development.js
+@@ -703,7 +703,7 @@ function testStringCoercion(value) {
+ function checkKeyStringCoercion(value) {
+   {
+     if (willCoercionThrow(value)) {
+-      error('The provided key is an unsupported type %s.' + ' This value must be coerced to a string before before using it here.', typeName(value));
++      error('The provided key is an unsupported type %s.' + ' This value must be coerced to a string before using it here.', typeName(value));
+ 
+       return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+     }
+diff --git a/node_modules/react/cjs/react-jsx-runtime.development.js b/node_modules/react/cjs/react-jsx-runtime.development.js
+index 8827d8b..4957f88 100644
+--- a/node_modules/react/cjs/react-jsx-runtime.development.js
++++ b/node_modules/react/cjs/react-jsx-runtime.development.js
+@@ -703,7 +703,7 @@ function testStringCoercion(value) {
+ function checkKeyStringCoercion(value) {
+   {
+     if (willCoercionThrow(value)) {
+-      error('The provided key is an unsupported type %s.' + ' This value must be coerced to a string before before using it here.', typeName(value));
++      error('The provided key is an unsupported type %s.' + ' This value must be coerced to a string before using it here.', typeName(value));
+ 
+       return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+     }
+diff --git a/node_modules/react/cjs/react.development.js b/node_modules/react/cjs/react.development.js
+index 8735990..40c1610 100644
+--- a/node_modules/react/cjs/react.development.js
++++ b/node_modules/react/cjs/react.development.js
+@@ -502,7 +502,7 @@ function testStringCoercion(value) {
+ function checkKeyStringCoercion(value) {
+   {
+     if (willCoercionThrow(value)) {
+-      error('The provided key is an unsupported type %s.' + ' This value must be coerced to a string before before using it here.', typeName(value));
++      error('The provided key is an unsupported type %s.' + ' This value must be coerced to a string before using it here.', typeName(value));
+ 
+       return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+     }
+diff --git a/node_modules/react/umd/react.development.js b/node_modules/react/umd/react.development.js
+index 37b38b3..03c8893 100644
+--- a/node_modules/react/umd/react.development.js
++++ b/node_modules/react/umd/react.development.js
+@@ -492,7 +492,7 @@
+   function checkKeyStringCoercion(value) {
+     {
+       if (willCoercionThrow(value)) {
+-        error('The provided key is an unsupported type %s.' + ' This value must be coerced to a string before before using it here.', typeName(value));
++        error('The provided key is an unsupported type %s.' + ' This value must be coerced to a string before using it here.', typeName(value));
+ 
+         return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+       }

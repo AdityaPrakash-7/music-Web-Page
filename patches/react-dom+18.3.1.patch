@@ -1,0 +1,271 @@
+diff --git a/node_modules/react-dom/cjs/react-dom-server-legacy.browser.development.js b/node_modules/react-dom/cjs/react-dom-server-legacy.browser.development.js
+index 102e3ef..355ef3a 100644
+--- a/node_modules/react-dom/cjs/react-dom-server-legacy.browser.development.js
++++ b/node_modules/react-dom/cjs/react-dom-server-legacy.browser.development.js
+@@ -159,7 +159,7 @@ function testStringCoercion(value) {
+ function checkAttributeStringCoercion(value, attributeName) {
+   {
+     if (willCoercionThrow(value)) {
+-      error('The provided `%s` attribute is an unsupported type %s.' + ' This value must be coerced to a string before before using it here.', attributeName, typeName(value));
++      error('The provided `%s` attribute is an unsupported type %s.' + ' This value must be coerced to a string before using it here.', attributeName, typeName(value));
+ 
+       return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+     }
+@@ -168,7 +168,7 @@ function checkAttributeStringCoercion(value, attributeName) {
+ function checkCSSPropertyStringCoercion(value, propName) {
+   {
+     if (willCoercionThrow(value)) {
+-      error('The provided `%s` CSS property is an unsupported type %s.' + ' This value must be coerced to a string before before using it here.', propName, typeName(value));
++      error('The provided `%s` CSS property is an unsupported type %s.' + ' This value must be coerced to a string before using it here.', propName, typeName(value));
+ 
+       return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+     }
+@@ -177,7 +177,7 @@ function checkCSSPropertyStringCoercion(value, propName) {
+ function checkHtmlStringCoercion(value) {
+   {
+     if (willCoercionThrow(value)) {
+-      error('The provided HTML markup uses a value of unsupported type %s.' + ' This value must be coerced to a string before before using it here.', typeName(value));
++      error('The provided HTML markup uses a value of unsupported type %s.' + ' This value must be coerced to a string before using it here.', typeName(value));
+ 
+       return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+     }
+diff --git a/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js b/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js
+index 3f5380d..646fa70 100644
+--- a/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js
++++ b/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js
+@@ -160,7 +160,7 @@ function testStringCoercion(value) {
+ function checkAttributeStringCoercion(value, attributeName) {
+   {
+     if (willCoercionThrow(value)) {
+-      error('The provided `%s` attribute is an unsupported type %s.' + ' This value must be coerced to a string before before using it here.', attributeName, typeName(value));
++      error('The provided `%s` attribute is an unsupported type %s.' + ' This value must be coerced to a string before using it here.', attributeName, typeName(value));
+ 
+       return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+     }
+@@ -169,7 +169,7 @@ function checkAttributeStringCoercion(value, attributeName) {
+ function checkCSSPropertyStringCoercion(value, propName) {
+   {
+     if (willCoercionThrow(value)) {
+-      error('The provided `%s` CSS property is an unsupported type %s.' + ' This value must be coerced to a string before before using it here.', propName, typeName(value));
++      error('The provided `%s` CSS property is an unsupported type %s.' + ' This value must be coerced to a string before using it here.', propName, typeName(value));
+ 
+       return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+     }
+@@ -178,7 +178,7 @@ function checkCSSPropertyStringCoercion(value, propName) {
+ function checkHtmlStringCoercion(value) {
+   {
+     if (willCoercionThrow(value)) {
+-      error('The provided HTML markup uses a value of unsupported type %s.' + ' This value must be coerced to a string before before using it here.', typeName(value));
++      error('The provided HTML markup uses a value of unsupported type %s.' + ' This value must be coerced to a string before using it here.', typeName(value));
+ 
+       return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+     }
+diff --git a/node_modules/react-dom/cjs/react-dom-server.browser.development.js b/node_modules/react-dom/cjs/react-dom-server.browser.development.js
+index bc16e57..49ff646 100644
+--- a/node_modules/react-dom/cjs/react-dom-server.browser.development.js
++++ b/node_modules/react-dom/cjs/react-dom-server.browser.development.js
+@@ -225,7 +225,7 @@ function testStringCoercion(value) {
+ function checkAttributeStringCoercion(value, attributeName) {
+   {
+     if (willCoercionThrow(value)) {
+-      error('The provided `%s` attribute is an unsupported type %s.' + ' This value must be coerced to a string before before using it here.', attributeName, typeName(value));
++      error('The provided `%s` attribute is an unsupported type %s.' + ' This value must be coerced to a string before using it here.', attributeName, typeName(value));
+ 
+       return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+     }
+@@ -234,7 +234,7 @@ function checkAttributeStringCoercion(value, attributeName) {
+ function checkCSSPropertyStringCoercion(value, propName) {
+   {
+     if (willCoercionThrow(value)) {
+-      error('The provided `%s` CSS property is an unsupported type %s.' + ' This value must be coerced to a string before before using it here.', propName, typeName(value));
++      error('The provided `%s` CSS property is an unsupported type %s.' + ' This value must be coerced to a string before using it here.', propName, typeName(value));
+ 
+       return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+     }
+@@ -243,7 +243,7 @@ function checkCSSPropertyStringCoercion(value, propName) {
+ function checkHtmlStringCoercion(value) {
+   {
+     if (willCoercionThrow(value)) {
+-      error('The provided HTML markup uses a value of unsupported type %s.' + ' This value must be coerced to a string before before using it here.', typeName(value));
++      error('The provided HTML markup uses a value of unsupported type %s.' + ' This value must be coerced to a string before using it here.', typeName(value));
+ 
+       return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+     }
+diff --git a/node_modules/react-dom/cjs/react-dom-server.node.development.js b/node_modules/react-dom/cjs/react-dom-server.node.development.js
+index de58cde..4ec086b 100644
+--- a/node_modules/react-dom/cjs/react-dom-server.node.development.js
++++ b/node_modules/react-dom/cjs/react-dom-server.node.development.js
+@@ -291,7 +291,7 @@ function testStringCoercion(value) {
+ function checkAttributeStringCoercion(value, attributeName) {
+   {
+     if (willCoercionThrow(value)) {
+-      error('The provided `%s` attribute is an unsupported type %s.' + ' This value must be coerced to a string before before using it here.', attributeName, typeName(value));
++      error('The provided `%s` attribute is an unsupported type %s.' + ' This value must be coerced to a string before using it here.', attributeName, typeName(value));
+ 
+       return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+     }
+@@ -300,7 +300,7 @@ function checkAttributeStringCoercion(value, attributeName) {
+ function checkCSSPropertyStringCoercion(value, propName) {
+   {
+     if (willCoercionThrow(value)) {
+-      error('The provided `%s` CSS property is an unsupported type %s.' + ' This value must be coerced to a string before before using it here.', propName, typeName(value));
++      error('The provided `%s` CSS property is an unsupported type %s.' + ' This value must be coerced to a string before using it here.', propName, typeName(value));
+ 
+       return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+     }
+@@ -309,7 +309,7 @@ function checkCSSPropertyStringCoercion(value, propName) {
+ function checkHtmlStringCoercion(value) {
+   {
+     if (willCoercionThrow(value)) {
+-      error('The provided HTML markup uses a value of unsupported type %s.' + ' This value must be coerced to a string before before using it here.', typeName(value));
++      error('The provided HTML markup uses a value of unsupported type %s.' + ' This value must be coerced to a string before using it here.', typeName(value));
+ 
+       return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+     }
+diff --git a/node_modules/react-dom/cjs/react-dom.development.js b/node_modules/react-dom/cjs/react-dom.development.js
+index a11d72f..91d7f86 100644
+--- a/node_modules/react-dom/cjs/react-dom.development.js
++++ b/node_modules/react-dom/cjs/react-dom.development.js
+@@ -262,7 +262,7 @@ function testStringCoercion(value) {
+ function checkAttributeStringCoercion(value, attributeName) {
+   {
+     if (willCoercionThrow(value)) {
+-      error('The provided `%s` attribute is an unsupported type %s.' + ' This value must be coerced to a string before before using it here.', attributeName, typeName(value));
++      error('The provided `%s` attribute is an unsupported type %s.' + ' This value must be coerced to a string before using it here.', attributeName, typeName(value));
+ 
+       return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+     }
+@@ -271,7 +271,7 @@ function checkAttributeStringCoercion(value, attributeName) {
+ function checkKeyStringCoercion(value) {
+   {
+     if (willCoercionThrow(value)) {
+-      error('The provided key is an unsupported type %s.' + ' This value must be coerced to a string before before using it here.', typeName(value));
++      error('The provided key is an unsupported type %s.' + ' This value must be coerced to a string before using it here.', typeName(value));
+ 
+       return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+     }
+@@ -280,7 +280,7 @@ function checkKeyStringCoercion(value) {
+ function checkPropStringCoercion(value, propName) {
+   {
+     if (willCoercionThrow(value)) {
+-      error('The provided `%s` prop is an unsupported type %s.' + ' This value must be coerced to a string before before using it here.', propName, typeName(value));
++      error('The provided `%s` prop is an unsupported type %s.' + ' This value must be coerced to a string before using it here.', propName, typeName(value));
+ 
+       return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+     }
+@@ -289,7 +289,7 @@ function checkPropStringCoercion(value, propName) {
+ function checkCSSPropertyStringCoercion(value, propName) {
+   {
+     if (willCoercionThrow(value)) {
+-      error('The provided `%s` CSS property is an unsupported type %s.' + ' This value must be coerced to a string before before using it here.', propName, typeName(value));
++      error('The provided `%s` CSS property is an unsupported type %s.' + ' This value must be coerced to a string before using it here.', propName, typeName(value));
+ 
+       return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+     }
+@@ -298,7 +298,7 @@ function checkCSSPropertyStringCoercion(value, propName) {
+ function checkHtmlStringCoercion(value) {
+   {
+     if (willCoercionThrow(value)) {
+-      error('The provided HTML markup uses a value of unsupported type %s.' + ' This value must be coerced to a string before before using it here.', typeName(value));
++      error('The provided HTML markup uses a value of unsupported type %s.' + ' This value must be coerced to a string before using it here.', typeName(value));
+ 
+       return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+     }
+@@ -307,7 +307,7 @@ function checkHtmlStringCoercion(value) {
+ function checkFormFieldValueStringCoercion(value) {
+   {
+     if (willCoercionThrow(value)) {
+-      error('Form field values (value, checked, defaultValue, or defaultChecked props)' + ' must be strings, not %s.' + ' This value must be coerced to a string before before using it here.', typeName(value));
++      error('Form field values (value, checked, defaultValue, or defaultChecked props)' + ' must be strings, not %s.' + ' This value must be coerced to a string before using it here.', typeName(value));
+ 
+       return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+     }
+diff --git a/node_modules/react-dom/umd/react-dom-server-legacy.browser.development.js b/node_modules/react-dom/umd/react-dom-server-legacy.browser.development.js
+index 2fc4484..825c117 100644
+--- a/node_modules/react-dom/umd/react-dom-server-legacy.browser.development.js
++++ b/node_modules/react-dom/umd/react-dom-server-legacy.browser.development.js
+@@ -156,7 +156,7 @@
+   function checkAttributeStringCoercion(value, attributeName) {
+     {
+       if (willCoercionThrow(value)) {
+-        error('The provided `%s` attribute is an unsupported type %s.' + ' This value must be coerced to a string before before using it here.', attributeName, typeName(value));
++        error('The provided `%s` attribute is an unsupported type %s.' + ' This value must be coerced to a string before using it here.', attributeName, typeName(value));
+ 
+         return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+       }
+@@ -165,7 +165,7 @@
+   function checkCSSPropertyStringCoercion(value, propName) {
+     {
+       if (willCoercionThrow(value)) {
+-        error('The provided `%s` CSS property is an unsupported type %s.' + ' This value must be coerced to a string before before using it here.', propName, typeName(value));
++        error('The provided `%s` CSS property is an unsupported type %s.' + ' This value must be coerced to a string before using it here.', propName, typeName(value));
+ 
+         return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+       }
+@@ -174,7 +174,7 @@
+   function checkHtmlStringCoercion(value) {
+     {
+       if (willCoercionThrow(value)) {
+-        error('The provided HTML markup uses a value of unsupported type %s.' + ' This value must be coerced to a string before before using it here.', typeName(value));
++        error('The provided HTML markup uses a value of unsupported type %s.' + ' This value must be coerced to a string before using it here.', typeName(value));
+ 
+         return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+       }
+diff --git a/node_modules/react-dom/umd/react-dom.development.js b/node_modules/react-dom/umd/react-dom.development.js
+index 57a309c..bad0d24 100644
+--- a/node_modules/react-dom/umd/react-dom.development.js
++++ b/node_modules/react-dom/umd/react-dom.development.js
+@@ -249,7 +249,7 @@
+   function checkAttributeStringCoercion(value, attributeName) {
+     {
+       if (willCoercionThrow(value)) {
+-        error('The provided `%s` attribute is an unsupported type %s.' + ' This value must be coerced to a string before before using it here.', attributeName, typeName(value));
++        error('The provided `%s` attribute is an unsupported type %s.' + ' This value must be coerced to a string before using it here.', attributeName, typeName(value));
+ 
+         return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+       }
+@@ -258,7 +258,7 @@
+   function checkKeyStringCoercion(value) {
+     {
+       if (willCoercionThrow(value)) {
+-        error('The provided key is an unsupported type %s.' + ' This value must be coerced to a string before before using it here.', typeName(value));
++        error('The provided key is an unsupported type %s.' + ' This value must be coerced to a string before using it here.', typeName(value));
+ 
+         return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+       }
+@@ -267,7 +267,7 @@
+   function checkPropStringCoercion(value, propName) {
+     {
+       if (willCoercionThrow(value)) {
+-        error('The provided `%s` prop is an unsupported type %s.' + ' This value must be coerced to a string before before using it here.', propName, typeName(value));
++        error('The provided `%s` prop is an unsupported type %s.' + ' This value must be coerced to a string before using it here.', propName, typeName(value));
+ 
+         return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+       }
+@@ -276,7 +276,7 @@
+   function checkCSSPropertyStringCoercion(value, propName) {
+     {
+       if (willCoercionThrow(value)) {
+-        error('The provided `%s` CSS property is an unsupported type %s.' + ' This value must be coerced to a string before before using it here.', propName, typeName(value));
++        error('The provided `%s` CSS property is an unsupported type %s.' + ' This value must be coerced to a string before using it here.', propName, typeName(value));
+ 
+         return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+       }
+@@ -285,7 +285,7 @@
+   function checkHtmlStringCoercion(value) {
+     {
+       if (willCoercionThrow(value)) {
+-        error('The provided HTML markup uses a value of unsupported type %s.' + ' This value must be coerced to a string before before using it here.', typeName(value));
++        error('The provided HTML markup uses a value of unsupported type %s.' + ' This value must be coerced to a string before using it here.', typeName(value));
+ 
+         return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+       }
+@@ -294,7 +294,7 @@
+   function checkFormFieldValueStringCoercion(value) {
+     {
+       if (willCoercionThrow(value)) {
+-        error('Form field values (value, checked, defaultValue, or defaultChecked props)' + ' must be strings, not %s.' + ' This value must be coerced to a string before before using it here.', typeName(value));
++        error('Form field values (value, checked, defaultValue, or defaultChecked props)' + ' must be strings, not %s.' + ' This value must be coerced to a string before using it here.', typeName(value));
+ 
+         return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+       }
